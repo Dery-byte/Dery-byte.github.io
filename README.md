@@ -1,2 +1,1 @@
-# Dery-byte.github.io
-Amalitech Project
+# Calculator Project Javascript file
