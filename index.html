@@ -1,56 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <!-- <link rel="stylesheet" href="/style.css"> -->
+  <link rel="stylesheet" href="/reset.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="calculator dark">
-            <div class="theme-toggler active">
-                <i class="toggler-icon"></i>
-            </div>
-            <div class="display-screen">
-                <div id="display"></div>
-            </div>
-            <div class="buttons">
-                <table>
-                    <tr>
-                        <td><button class="btn-operator" id="clear">C</button></td>
-                        <td><button class="btn-operator" id="/">&divide;</button></td>
-                        <td><button class="btn-operator" id="*">&times;</button></td>
-                        <td><button class="btn-operator" id="backspace">del</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="btn-number" id="7">7</button></td>
-                        <td><button class="btn-number" id="8">8</button></td>
-                        <td><button class="btn-number" id="9">9</button></td>
-                        <td><button class="btn-operator" id="-">-</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="btn-number" id="4">4</button></td>
-                        <td><button class="btn-number" id="5">5</button></td>
-                        <td><button class="btn-number" id="6">6</button></td>
-                        <td><button class="btn-operator" id="+">+</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="btn-number" id="1">1</button></td>
-                        <td><button class="btn-number" id="2">2</button></td>
-                        <td><button class="btn-number" id="3">3</button></td>
-                        <td rowspan="2"><button class="btn-equal" id="equal">=</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="btn-operator" id="(">(</button></td>
-                        <td><button class="btn-number" id="0">0</button></td>
-                        <td><button class="btn-operator" id=")">)</button></td>
-                    </tr>
-                </table>
+  <div class="container">
+
+     <div class="modal">
+            <div class="modal__overlay"></div>
+            <div class="modal__content">
+                <div class="modal__header">
+                    <p class="modal__text">Rules</p>
+                    <img class="modal__closeIcon" src="./images/icon-close.svg" alt="close icon">
+                </div>
+                <img class="modal__image" src="./images/image-rules.svg" alt="rules image">
             </div>
         </div>
-    </div>
-    <script src="script.js"></script>
+
+        <div class="container__content">
+           <header class="header">
+                <p class="header__logo">
+                    <span>
+                        Rock
+                    </span>
+                    <span>
+                        Paper
+                    </span>
+                    <span>
+                        Scissors
+                    </span>
+                </p>
+                <div class="header__scoreContent">
+                    <p class="header__scoreText">score</p>
+                    <p class="header__scoreNumber">0</p>
+                </div>
+            </header>
+             <div class="gameContent">
+                <!-- GAME BACKGROUND-->
+                <div class="gameContent__bg"></div>
+                <!-- GAME TEXT-->
+                <div class="gameContent__text gameContent__text--isYou">You Picked</div>
+                <div class="gameContent__text gameContent__text--isComputer">The house picked</div>
+                <!-- GAME CHOICES-->
+                <div class="gameContent__gameChoice gameContent__gameChoice--isPaper" data-choice="Paper">
+                    <div class="gameContent__image">
+                        <img src="./images/icon-paper.svg" alt="paper choice">
+                    </div>
+                </div>
+                <div class="gameContent__gameChoice gameContent__gameChoice--isScissors" data-choice="Scissors">
+                    <div class="gameContent__image">
+                        <img src="./images/icon-scissors.svg" alt="scissors choice">
+                    </div>
+                </div>
+                <div class="gameContent__gameChoice gameContent__gameChoice--isRock" data-choice="Rock">
+                    <div class="gameContent__image">
+                        <img src="./images/icon-rock.svg" alt="rock choice">
+                    </div>
+                </div>
+                <div class="gameContent__gameChoice gameContent__gameChoice--isComputer">
+                    <div class="gameContent__image">
+                        <span class="gameContent__countdownText"></span>
+                        <img src="" class="gameContent__gameChoiceImage" alt="computer choice" />
+                    </div>
+                </div>
+                <div class="gameContent__result">
+                    <lottie-player src='https://assets10.lottiefiles.com/packages/lf20_aEFaHc.json'
+                                   background="transparent"
+                                   speed="1"
+                                   style="width: 300px; height: 300px;position: absolute;"
+                                   autoplay></lottie-player>
+                    <span class="gameContent__resultText">You Win</span>
+                    <button class="gameContent__resultButton">Play again</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+<div class="container__rules">
+            Rules
+        </div>
+  </div>
+
+  <!-- Score
+  Rules
+
+  You Picked
+  The House Picked
+
+  You Win
+  You Lose
+
+  Play Again -->
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+
+
+
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="./scripts.js"></script>
 </body>
 </html>
